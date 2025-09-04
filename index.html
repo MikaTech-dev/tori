@@ -35,6 +35,29 @@
         .flower-animate {
             animation: sway 7s ease-in-out infinite;
         }
+        /* Reusable text sweep effect - customizable via CSS variables */
+        .sweep {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            /* fallback color for non-supporting browsers */
+            color: var(--sweep-fallback, #7c3aed);
+            /* layered backgrounds: top layer is the white-ish sweep highlight, bottom is the colored base (customizable) */
+            background-image:
+                linear-gradient(90deg, rgba(255,255,255,0) 0% 45%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0) 55%),
+                linear-gradient(90deg, var(--sweep-start, #7c3aed) 0%, var(--sweep-end, #a78bfa) 100%);
+            background-size: 200% 100%, 100% 100%;
+            background-repeat: no-repeat;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            animation: light-sweep 2.5s linear infinite;
+        }
+
+        @keyframes light-sweep {
+            0%   { background-position: -150% 0, 0 0; }
+            100% { background-position: 150% 0, 0 0; }
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-green-100 to-pink-100 min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
@@ -81,20 +104,41 @@
 
         <!-- Birthday Message/Essay -->
         <main class="text-gray-700 text-base md:text-lg leading-relaxed space-y-4 relative z-10">
+
             <p>
-                On this beautiful day, the world shines a little brighter because it's the day you were born! It feels like just yesterday we met. Every second of moment I've spent with you has been filled with joy. So much so that sometimes I legit bite my tongue checking if ts (yes ts = this🥹) is real. I would've never thought someone so pretty 
+                On this beautiful day my wonderful girlfriend and best friend Tori was born‼️‼️‼️
+            </p>
+                I keep replaying moments in my head your laugh, all the nights we've spent talking just you and me, even all the times we've played together lol. The small things you do that make ordinary moments feel magical. It feels like just yesterday we met, and already my life has been rearranged around you in the best possible way.
+            <p>
+                I swear it's so difficult to find words, I'm kinda not used to talking about how i feel and stuff but you... you make feel so easy, so normal. I can't even find the words to explain how deeply in love i've fallen for you. You sneak into my thoughts in the quietest moments, at my lowest points and somehow make everything better without even trying- like it's not even funny 😭. Every second i've spent with you i've felt comfort, joy, and at home all at once.
             </p>
             <p>
-                Watching you grow, chase your dreams, and light up every room you enter has been one of the great joys of my life. Your kindness, strength, and that ridiculously contagious laugh make the world a better, more colorful place. You have a unique way of making everyone feel special, and I hope today, you feel all the love and appreciation you so freely give to others reflected right back at you.
+                There are moments when i literally have to bite my tongue to check if ts (yes ts = this🥹) is even real. You've added so much meaning in life and helped me go after the kind of happiness i used to only dream of. You give me reasons to smile on the hardest days and celebrate on the best ones. I know you hear me say this a lot but I don't know what i could do or say to make you realise how much i mean this but-
+            </p>
+            <!-- sweep styles moved to head; reuse via .sweep and CSS variables -->
+
+            <h2 class="text-2xl sm:text-3xl sweep mt-4">i love you</h2>
+            <p>
+                If I could pluck the moon from midnight blue and place it in your hand,  
+                I'd trade a thousand stars for one soft smile to prove my love is true.  
+                If I could fold the miles and hush the hours that keep us apart,  
+                I'd bring you close tomorrow and never let you go from my heart.
             </p>
             <p>
-                I pray every dream of yours gets fulfilled, and I hope you have a wonderful birthday 
+                But for now all I can do is pray every dream of yours comes true and that this year onwards brings you more laughter, peace, and everything your heart asks for. Enjoy every bit of today - you deserve it. Happy birthday, my love, my one and only.
+            </p>
+            <p>
+                I was gonna add in a kpop song or some other more hip song you liked buttt I wanted you to know that this song, every time i listen to this song, I think of you.
+            </p>
+                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6RiiSy9GzSwiyDEJDiMuKe?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <p>
+                ps: It's not much but i heard you like pizza
             </p>
         </main>
 
         <!-- Signature -->
         <footer class="text-right mt-12 relative z-10">
-            <h2 class="text-2xl sm:text-3xl text-green-500" style="font-family: 'Playfair Display', serif; font-style: italic;">
+            <h2 class="text-2xl sm:text-3xl sweep text-green-500" style="--sweep-start: #34d399; --sweep-end: #10b981; --sweep-fallback: #10b981; font-family: 'Playfair Display', serif; font-style: italic;">
                 With all my love,
             </h2>
             <p class="text-xl text-gray-600 mt-2" style="font-family: 'Playfair Display', serif;">
