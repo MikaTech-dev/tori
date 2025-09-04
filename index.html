@@ -58,16 +58,65 @@
             0%   { background-position: -150% 0, 0 0; }
             100% { background-position: 150% 0, 0 0; }
         }
+
+        /* Mobile-friendly adjustments */
+        .card {
+            max-width: 42rem; /* keeps it readable on large screens */
+            width: 100%;
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 640px) {
+            /* reduce card padding and shadow on small screens */
+            .card {
+                padding: 1.25rem; /* ~p-5 */
+                border-radius: 1rem;
+            }
+
+            /* scale down heading for extra-small phones */
+            .card h1 {
+                font-size: 1.6rem; /* ~text-2xl */
+            }
+
+            /* hide decorative flowers on the smallest screens to reduce clutter */
+            .flower {
+                display: none;
+            }
+
+            /* tighten paragraph spacing and slightly increase line-height for readability */
+            .card main p {
+                margin-bottom: 0.75rem;
+                line-height: 1.5;
+            }
+
+            /* make the Spotify embed shorter on small screens */
+            .spotify-embed {
+                height: 110px !important;
+            }
+        }
+
+        /* Medium screens: scale down flower SVGs so they don't overlap text */
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .flower svg { width: 140px; height: 140px; }
+        }
+
+        /* Respect prefers-reduced-motion */
+        @media (prefers-reduced-motion: reduce) {
+            .flower-animate, .sweep {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-green-100 to-pink-100 min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
 
     <!-- Main Birthday Card -->
-    <div class="relative overflow-hidden bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl max-w-2xl w-full p-8 sm:p-12 transform transition-all duration-500 hover:scale-105">
+    <div class="card relative overflow-hidden bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl max-w-2xl w-full p-8 sm:p-12 transform transition-all duration-500 hover:scale-105">
         
         <!-- CSS Flowers -->
         <!-- Bottom-left flower -->
-        <div class="absolute bottom-0 left-0 -translate-x-1/4 translate-y-1/4 opacity-80 flower-animate" style="transform-origin: 80% 20%;">
+    <div class="flower absolute bottom-0 left-0 -translate-x-1/4 translate-y-1/4 opacity-80 flower-animate" style="transform-origin: 80% 20%;">
             <svg width="200" height="200" viewBox="0 0 200 200">
                 <!-- Stem -->
                 <path d="M100 100 Q10 190 20 90" stroke="#6ee7b7" stroke-width="5" fill="none"/>
@@ -81,7 +130,7 @@
         </div>
 
         <!-- Top-right flower -->
-        <div class="absolute top-0 right-0 translate-x-1/4 -translate-y-1/4 opacity-80 flower-animate" style="animation-delay: -3.5s; transform-origin: 20% 80%;">
+    <div class="flower absolute top-0 right-0 translate-x-1/4 -translate-y-1/4 opacity-80 flower-animate" style="animation-delay: -3.5s; transform-origin: 20% 80%;">
              <svg width="200" height="200" viewBox="0 0 200 200">
                 <!-- Stem -->
                 <path d="M100 100 Q190 10, 180 110" stroke="#6ee7b7" stroke-width="5" fill="none"/>
@@ -130,7 +179,7 @@
             <p>
                 I was gonna add in a kpop song or some other more hip song you liked buttt I wanted you to know that this song, every time i listen to this song, I think of you.
             </p>
-                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6RiiSy9GzSwiyDEJDiMuKe?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <iframe data-testid="embed-iframe" class="spotify-embed" style="border-radius:12px" src="https://open.spotify.com/embed/track/6RiiSy9GzSwiyDEJDiMuKe?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             <p>
                 ps: It's not much but i heard you like pizza
             </p>
