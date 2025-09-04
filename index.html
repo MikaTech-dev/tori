@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I love you</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles to extend Tailwind */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        /* A subtle pattern for the background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ec4899' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+        }
+        /* Animation for flowers */
+        @keyframes sway {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+        .flower-animate {
+            animation: sway 7s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-green-100 to-pink-100 min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
+
+    <!-- Main Birthday Card -->
+    <div class="relative overflow-hidden bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl max-w-2xl w-full p-8 sm:p-12 transform transition-all duration-500 hover:scale-105">
+        
+        <!-- CSS Flowers -->
+        <!-- Bottom-left flower -->
+        <div class="absolute bottom-0 left-0 -translate-x-1/4 translate-y-1/4 opacity-80 flower-animate" style="transform-origin: 80% 20%;">
+            <svg width="200" height="200" viewBox="0 0 200 200">
+                <!-- Stem -->
+                <path d="M100 100 Q10 190 20 90" stroke="#6ee7b7" stroke-width="5" fill="none"/>
+                <!-- Leaf 1 -->
+                <path d="M45 125 C 55 110, 80 120, 70 140 Z" fill="#34d399"/>
+                <!-- Petal 1 (Pink) -->
+                <path d="M98 100 C 50 70, 70 20, 105 50 S 140 130, 98 100 Z" fill="#f9a8d4"/>
+                 <!-- Petal 2 (Lighter Pink) -->
+                <path d="M102 100 C 150 70, 130 20, 95 50 S 60 130, 102 100 Z" fill="#fbcfe8"/>
+            </svg>
+        </div>
+
+        <!-- Top-right flower -->
+        <div class="absolute top-0 right-0 translate-x-1/4 -translate-y-1/4 opacity-80 flower-animate" style="animation-delay: -3.5s; transform-origin: 20% 80%;">
+             <svg width="200" height="200" viewBox="0 0 200 200">
+                <!-- Stem -->
+                <path d="M100 100 Q190 10, 180 110" stroke="#6ee7b7" stroke-width="5" fill="none"/>
+                <!-- Leaf 1 -->
+                <path d="M155 75 C 145 90, 120 80, 130 60 Z" fill="#34d399"/>
+                <!-- Petal 1 (Pink) -->
+                <path d="M102 100 C 150 130, 130 180, 95 150 S 60 70, 102 100 Z" fill="#f9a8d4"/>
+                 <!-- Petal 2 (Lighter Pink) -->
+                <path d="M98 100 C 50 130, 70 180, 105 150 S 140 70, 98 100 Z" fill="#fbcfe8"/>
+            </svg>
+        </div>
+
+        <!-- Header Section -->
+        <header class="text-center mb-8 relative z-10">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-pink-500 tracking-wider">
+                Happy Birthday, Tori!
+            </h1>
+            <div class="w-24 h-1 bg-green-300 mx-auto mt-4 rounded-full"></div>
+        </header>
+
+        <!-- Birthday Message/Essay -->
+        <main class="text-gray-700 text-base md:text-lg leading-relaxed space-y-4 relative z-10">
+            <p>
+                On this beautiful day, the world shines a little brighter because it's the day you were born! It feels like just yesterday we met. Every second of moment I've spent with you has been filled with joy. So much so that sometimes I legit bite my tongue checking if ts (yes ts = this🥹) is real. I would've never thought someone so pretty 
+            </p>
+            <p>
+                Watching you grow, chase your dreams, and light up every room you enter has been one of the great joys of my life. Your kindness, strength, and that ridiculously contagious laugh make the world a better, more colorful place. You have a unique way of making everyone feel special, and I hope today, you feel all the love and appreciation you so freely give to others reflected right back at you.
+            </p>
+            <p>
+                I pray every dream of yours gets fulfilled, and I hope you have a wonderful birthday 
+            </p>
+        </main>
+
+        <!-- Signature -->
+        <footer class="text-right mt-12 relative z-10">
+            <h2 class="text-2xl sm:text-3xl text-green-500" style="font-family: 'Playfair Display', serif; font-style: italic;">
+                With all my love,
+            </h2>
+            <p class="text-xl text-gray-600 mt-2" style="font-family: 'Playfair Display', serif;">
+                Tori✨
+            </p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
