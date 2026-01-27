@@ -1,201 +1,22 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I love you</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        /* Custom styles to extend Tailwind */
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
-        /* A subtle pattern for the background */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ec4899' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            z-index: -1;
-        }
-        /* Animation for flowers */
-        @keyframes sway {
-            0%, 100% { transform: rotate(-3deg); }
-            50% { transform: rotate(3deg); }
-        }
-        .flower-animate {
-            animation: sway 7s ease-in-out infinite;
-        }
-        /* Reusable text sweep effect - customizable via CSS variables */
-        .sweep {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            /* fallback color for non-supporting browsers */
-            color: var(--sweep-fallback, #7c3aed);
-            /* layered backgrounds: top layer is the white-ish sweep highlight, bottom is the colored base (customizable) */
-            background-image:
-                linear-gradient(90deg, rgba(255,255,255,0) 0% 45%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0) 55%),
-                linear-gradient(90deg, var(--sweep-start, #7c3aed) 0%, var(--sweep-end, #a78bfa) 100%);
-            background-size: 200% 100%, 100% 100%;
-            background-repeat: no-repeat;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-            animation: light-sweep 2.5s linear infinite;
-        }
-
-        @keyframes light-sweep {
-            0%   { background-position: -150% 0, 0 0; }
-            100% { background-position: 150% 0, 0 0; }
-        }
-
-        /* Mobile-friendly adjustments */
-        .card {
-            max-width: 42rem; /* keeps it readable on large screens */
-            width: 100%;
-        }
-
-        /* Responsive tweaks */
-        @media (max-width: 640px) {
-            /* reduce card padding and shadow on small screens */
-            .card {
-                padding: 1.25rem; /* ~p-5 */
-                border-radius: 1rem;
-            }
-
-            /* scale down heading for extra-small phones */
-            .card h1 {
-                font-size: 1.6rem; /* ~text-2xl */
-            }
-
-            /* hide decorative flowers on the smallest screens to reduce clutter */
-            .flower {
-                display: none;
-            }
-
-            /* tighten paragraph spacing and slightly increase line-height for readability */
-            .card main p {
-                margin-bottom: 0.75rem;
-                line-height: 1.5;
-            }
-
-            /* make the Spotify embed shorter on small screens */
-            .spotify-embed {
-                height: 110px !important;
-            }
-        }
-
-        /* Medium screens: scale down flower SVGs so they don't overlap text */
-        @media (min-width: 641px) and (max-width: 1024px) {
-            .flower svg { width: 140px; height: 140px; }
-        }
-
-        /* Respect prefers-reduced-motion */
-        @media (prefers-reduced-motion: reduce) {
-            .flower-animate, .sweep {
-                animation: none !important;
-                transition: none !important;
-            }
-        }
-    </style>
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-gradient-to-br from-green-100 to-pink-100 min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
-
-    <!-- Main Birthday Card -->
-    <div class="card relative overflow-hidden bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl max-w-2xl w-full p-8 sm:p-12 transform transition-all duration-500 hover:scale-105">
-        
-        <!-- CSS Flowers -->
-        <!-- Bottom-left flower -->
-    <div class="flower absolute bottom-0 left-0 -translate-x-1/4 translate-y-1/4 opacity-80 flower-animate" style="transform-origin: 80% 20%;">
-            <svg width="200" height="200" viewBox="0 0 200 200">
-                <!-- Stem -->
-                <path d="M100 100 Q10 190 20 90" stroke="#6ee7b7" stroke-width="5" fill="none"/>
-                <!-- Leaf 1 -->
-                <path d="M45 125 C 55 110, 80 120, 70 140 Z" fill="#34d399"/>
-                <!-- Petal 1 (Pink) -->
-                <path d="M98 100 C 50 70, 70 20, 105 50 S 140 130, 98 100 Z" fill="#f9a8d4"/>
-                 <!-- Petal 2 (Lighter Pink) -->
-                <path d="M102 100 C 150 70, 130 20, 95 50 S 60 130, 102 100 Z" fill="#fbcfe8"/>
-            </svg>
-        </div>
-
-        <!-- Top-right flower -->
-    <div class="flower absolute top-0 right-0 translate-x-1/4 -translate-y-1/4 opacity-80 flower-animate" style="animation-delay: -3.5s; transform-origin: 20% 80%;">
-             <svg width="200" height="200" viewBox="0 0 200 200">
-                <!-- Stem -->
-                <path d="M100 100 Q190 10, 180 110" stroke="#6ee7b7" stroke-width="5" fill="none"/>
-                <!-- Leaf 1 -->
-                <path d="M155 75 C 145 90, 120 80, 130 60 Z" fill="#34d399"/>
-                <!-- Petal 1 (Pink) -->
-                <path d="M102 100 C 150 130, 130 180, 95 150 S 60 70, 102 100 Z" fill="#f9a8d4"/>
-                 <!-- Petal 2 (Lighter Pink) -->
-                <path d="M98 100 C 50 130, 70 180, 105 150 S 140 70, 98 100 Z" fill="#fbcfe8"/>
-            </svg>
-        </div>
-
-        <!-- Header Section -->
-        <header class="text-center mb-8 relative z-10">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-pink-500 tracking-wider">
-                ██████████,Tori!
-            </h1>
-            <div class="w-24 h-1 bg-green-300 mx-auto mt-4 rounded-full"></div>
-        </header>
-
-        <!-- Birthday Message/Essay -->
-        <main class="text-gray-700 text-base md:text-lg leading-relaxed space-y-4 relative z-10">
-
-            <p>
-                ████████████████████████████████████████‼️‼️‼️
-            </p>
-                █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████.
-            <p>
-                ███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████.
-            </p>
-            <p>
-                ██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████.
-            </p>
-            <!-- sweep styles moved to head; reuse via .sweep and CSS variables -->
-
-            <h2 class="text-2xl sm:text-3xl sweep mt-4">i love you</h2>
-            <p>
-                ████████████████████████████████████████████████████████████████████,  
-                ████████████████████████████████████████████████████████████████████████.  
-                ██████████████████████████████████████████████████████████████,  
-                ████████████████████████████████████████████████████████████████████.
-            </p>
-            <p>
-                ██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████.
-            </p>
-            <p>
-                ██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████.
-            </p>
-                <iframe data-testid="embed-iframe" class="spotify-embed" style="border-radius:12px" src="https://open.spotify.com/embed/track/6RiiSy9GzSwiyDEJDiMuKe?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <p>
-                ██████████████████████████████████████
-            </p>
-        </main>
-
-        <!-- Signature -->
-        <footer class="text-right mt-12 relative z-10">
-            <h2 class="text-2xl sm:text-3xl sweep text-green-500" style="--sweep-start: #34d399; --sweep-end: #10b981; --sweep-fallback: #10b981; font-family: 'Playfair Display', serif; font-style: italic;">
-                With all my love,
-            </h2>
-            <p class="text-xl text-gray-600 mt-2" style="font-family: 'Playfair Display', serif;">
-                Tori✨
-            </p>
-        </footer>
-
+<body class="justify-self-center content-center">
+    <img src="https://media1.tenor.com/m/fZOnOwnmrtIAAAAC/wsg-fine-shyt.gif" alt="pleaseeeeeeeeeeeee" class="w-2xs js-first-gif">
+    <img src="https://media.tenor.com/MfFIt2lM3d4AAAAj/cryog.gif" alt="tearing up atp ☹️" class="w-2xs hidden js-second-gif">
+    <img src="https://media.tenor.com/arTD_7WOs_QAAAAi/crying-sobbing.gif" alt="Why are you doing this to meeeee" class="w-2xs hidden js-third-gif">
+    <h1 class="justify-self-center pt-3">Will you be my Valentine?</h1>
+    <div class="justify-self-center py-3">
+        <button type="button" class="bg-green-500 px-4 py-3 mx-3 rounded-3xl text-white cursor-pointer hover:scale-110 focus:outline-2 focus:outline-offset-2 focus:outline-green-500 active:bg-green-400 active:scale-90 transition" id="Yes">Yes!!</button>
+        <button type="button" class="bg-red-500 px-5 py-3 rounded-3xl text-white cursor-pointer hover:scale-110 focus:outline-2 focus:outline-offset-2 focus:outline-red-500 active:bg-red-400 active:scale-90 transition" id="No">No</button>
+        <button type="button" class="cursor-pointer bg-purple-500 px-5 py-3 rounded-3xl ml-3 transition hover:scale-110 active:scale-90 focus:outline-2 focus:outline-offset-2 focus:outline-purple-500 active:bg-purple-400 text-white" id="Unhide">Unhide</button>
     </div>
-
-</body>
+    </body>
 </html>
+<!-- TODO: ADD unhide logic and "no onclick increases yes padding and changes text to a predefined list of texts." -->
+
+<script></script>
