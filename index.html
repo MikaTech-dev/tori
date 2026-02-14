@@ -29,12 +29,6 @@
         </button>
     </div>
 
-    <div class="mt-10">
-        <button type="button" class="cursor-pointer bg-purple-500 px-4 py-2 rounded-xl text-white text-sm hover:bg-purple-600" id="Unhide">
-            (Debug) Unhide All
-        </button>
-    </div>
-
 <script>
     const yesBtn = document.querySelector('#Yes');
     const noBtn = document.querySelector('#No');
@@ -48,16 +42,15 @@
         "Think again!",
         "Last chance!",
         "Surely not?",
-        "You might regret this!",
+        "You're breaking my heart ;(",
+        "Are you sure? 😰",
         "Give it another thought!",
         "Are you absolutely certain?",
-        "This could be a mistake!",
         "Have a heart!",
         "Don't be so cold!",
         "Change of heart?",
         "Wouldn't you reconsider?",
         "Is that your final answer?",
-        "You're breaking my heart ;("
     ];
 
     let textIndex = 0;
@@ -81,21 +74,11 @@
         mainText.textContent = "I KNEW IT!!! ❤️";
         yesBtn.style.display = "none"
         noBtn.style.display = 'none'; // Hide the No button
-        unhideBtn.style.display = 'none';
         
         // Reset images to show only the happy one or a new one
         allImages.forEach(img => img.classList.add('hidden'));
         document.querySelector('.js-first-gif').src = "https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"; // Switch to kissing bears
         document.querySelector('.js-first-gif').classList.remove('hidden');
-    });
-
-    // 4. Unhide Logic
-    unhideBtn.addEventListener("click", ()=> {
-        allImages.forEach((img) => {
-            img.classList.remove('hidden');
-            img.style.border = "3px solid purple";
-        });
-        unhideBtn.textContent = "Images Revealed!";
     });
 
 </script>
