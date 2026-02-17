@@ -1,30 +1,31 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Be My Valentine?</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
     <style>
         /* Smooth transition for the growing button */
         #Yes { transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        body { background-color: #fff5f5; }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen gap-4 text-center">
+<body class="flex flex-col items-center justify-center min-h-screen gap-4 text-center p-4">
     
-    <div id="image-container" class="flex flex-col items-center">
+    <div id="image-container" class="flex flex-col items-center min-h-[200px] justify-center">
         <img src="https://media1.tenor.com/m/fZOnOwnmrtIAAAAC/wsg-fine-shyt.gif" alt="please" class="w-48 js-first-gif">
-        <img src="https://media.tenor.com/MfFIt2lM3d4AAAAj/cryog.gif" alt="sad" class="w-48 hidden js-second-gif">
-        <img src="https://media.tenor.com/arTD_7WOs_QAAAAi/crying-sobbing.gif" alt="crying" class="w-48 hidden js-third-gif">
     </div>
 
-    <h1 class="text-2xl font-bold pt-3" id="main-text">Will you be my Valentine?</h1>
+    <h1 class="text-3xl font-bold pt-3 text-pink-600" id="main-text">Will you be my Valentine?</h1>
     
-    <div class="flex flex-wrap items-center justify-center gap-4 py-3">
-        <button type="button" class="bg-green-500 px-6 py-3 rounded-3xl text-white font-bold cursor-pointer hover:bg-green-600 focus:outline-green-500" id="Yes">
+    <div class="flex flex-wrap items-center justify-center gap-4 py-3 min-h-[150px]">
+        <button type="button" class="bg-green-500 px-8 py-4 rounded-3xl text-white font-bold cursor-pointer hover:bg-green-600 shadow-lg" id="Yes">
             Yes!!
         </button>
 
-        <button type="button" class="bg-red-500 px-6 py-3 rounded-3xl text-white font-bold cursor-pointer hover:bg-red-600 focus:outline-red-500" id="No">
+        <button type="button" class="bg-red-500 px-6 py-3 rounded-3xl text-white font-bold cursor-pointer hover:bg-red-600 shadow-md" id="No">
             No
         </button>
     </div>
@@ -32,9 +33,11 @@
 <script>
     const yesBtn = document.querySelector('#Yes');
     const noBtn = document.querySelector('#No');
-    const unhideBtn = document.querySelector('#Unhide');
-    const allImages = document.querySelectorAll("img");
+    const mainImg = document.querySelector('.js-first-gif');
     const mainText = document.querySelector('#main-text');
+
+    // 1. Initialize JSConfetti 
+    const jsConfetti = new JSConfetti();
 
     const rejectionTexts = [
         "Are you sure?",
@@ -58,27 +61,39 @@
 
     // 2. "No" Button Logic
     noBtn.addEventListener('click', () => {
-        // Grow the Yes button
         currentScale += 0.4; 
         yesBtn.style.transform = `scale(${currentScale})`;
-
-        // Change the No button text
         noBtn.textContent = rejectionTexts[textIndex];
-        
-        // Cycle through texts (loop back to start if we run out)
         textIndex = (textIndex + 1) % rejectionTexts.length;
+        
+        // Optional: Change image to sad one when they click no
+        mainImg.src = "https://media.tenor.com/MfFIt2lM3d4AAAAj/cryog.gif";
     });
 
-    // 3. "Yes" Button Logic (Optional: Make it alert or change page)
+    // 3. "Yes" Button Logic
     yesBtn.addEventListener('click', () => {
         mainText.textContent = "I KNEW IT!!! ❤️";
-        yesBtn.style.display = "none"
-        noBtn.style.display = 'none'; // Hide the No button
+        yesBtn.style.display = "none";
+        noBtn.style.display = 'none'; 
         
-        // Reset images to show only the happy one or a new one
-        allImages.forEach(img => img.classList.add('hidden'));
-        document.querySelector('.js-first-gif').src = "https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"; // Switch to kissing bears
-        document.querySelector('.js-first-gif').classList.remove('hidden');
+        // Change to happy gif
+        mainImg.src = "https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"; 
+
+        // 4. Trigger the confetti blast
+        // We can call it multiple times for extra effect
+        jsConfetti.addConfetti({
+            confettiColors: ['#ff0a54', '#ff477e', '#ff7096', '#fb6f92', '#ff85a1', '#fbb1bd'],
+            confettiRadius: 6,
+            confettiNumber: 500,
+        });
+
+        // Add a second burst after a tiny delay for "depth"
+        setTimeout(() => {
+            jsConfetti.addConfetti({
+                emojiSize: 25,
+                confettiNumber: 20,
+            });
+        }, 300);
     });
 
 </script>
