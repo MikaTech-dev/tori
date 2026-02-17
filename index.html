@@ -21,7 +21,7 @@
     <h1 class="text-3xl font-bold pt-3 text-pink-600" id="main-text">Will you be my Valentine?</h1>
     
     <div class="flex flex-wrap items-center justify-center gap-4 py-3 min-h-[150px]">
-        <button type="button" class="bg-green-500 px-8 py-4 rounded-3xl text-white font-bold cursor-pointer hover:bg-green-600 shadow-lg" id="Yes">
+        <button type="button" class="bg-green-500 px-6 py-3 rounded-3xl text-white font-bold cursor-pointer hover:bg-green-600 shadow-lg" id="Yes">
             Yes!!
         </button>
 
@@ -29,7 +29,6 @@
             No
         </button>
     </div>
-
 <script>
     const yesBtn = document.querySelector('#Yes');
     const noBtn = document.querySelector('#No');
@@ -72,22 +71,18 @@
 
     // 3. "Yes" Button Logic
     yesBtn.addEventListener('click', () => {
-        mainText.textContent = "I KNEW IT!!! ❤️";
+        mainText.textContent = "YAYYYYYYYYYYYYYYYYYY ILYSM!!! ❤️";
         yesBtn.style.display = "none";
         noBtn.style.display = 'none'; 
-        
-        // Change to happy gif
         mainImg.src = "https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"; 
 
-        // 4. Trigger the confetti blast
-        // We can call it multiple times for extra effect
         jsConfetti.addConfetti({
             confettiColors: ['#ff0a54', '#ff477e', '#ff7096', '#fb6f92', '#ff85a1', '#fbb1bd'],
             confettiRadius: 6,
             confettiNumber: 500,
         });
 
-        // Add a second burst after a tiny delay for "depth"
+        // Second burst after a tiny delay for "depth"
         setTimeout(() => {
             jsConfetti.addConfetti({
                 emojiSize: 25,
